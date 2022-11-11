@@ -1,0 +1,10 @@
+MODDIR=${0%/*}
+rm -rf $MODPATH/LICENSE
+sleep 20
+for i in $MODDIR/config/*; do
+case $i in
+*-ls|*-ls.sh);;
+*) if [ -f "$i" -a -x "$i" ]; then $i & fi;;
+esac
+done
+ 
